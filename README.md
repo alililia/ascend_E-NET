@@ -122,13 +122,7 @@ nohup bash scripts/run_standalone_train.sh /home/name/cityscapes 0 &
 
 其中/home/name/cityscapes指数据集的位置，其后的0指定device_id.
 
-#### 单卡
 
-```bash
-nohup `bash scripts/run_standalone_train_.sh  0 /home/name/cityscapes` &
-```
-
-其中0指定device_id，其后的/home/name/cityscapes指数据集的位置
 
 运行该脚本会完成对模型的训练和评估两个阶段。
 
@@ -163,20 +157,7 @@ tail -f log_multi_device/log0/log*.txt
 
 显示训练状态。
 
-#### 多卡
 
-```bash
-nohup `bash scripts/run_distribute_train_.sh  4 0,1,2,3 /home/name/cityscapes` &
-```
-
-其中4指rank_size, 再后的0,1,2,3制定了设备的编号, /home/name/cityscapes指数据集的位置， 在项目根目录下会生成log_distribute_device文件夹，./log_distribute_device/log_output*/1/rank.*/stdout即为多卡日志文件，
-键入
-
-```bash
-tail -f log_distribute_device/log_output*/1/rank.*/stdout
-```
-
-显示训练状态。
 
 ### 验证单个ckpt
 
